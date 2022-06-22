@@ -6,11 +6,12 @@ pipeline {
 
     stages {
         stage('1-Find-a-Name') {
-
+          steps { 
             script {
             if (env.JOB_NAME.contains('PROD')) {
               options { disableConcurrentBuilds() }
                 }
+    }
     }
 }
         stage('2-Deploy') {
