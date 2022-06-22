@@ -3,7 +3,7 @@ pipeline {
     environment {
       build = 'disableConcurrentBuilds' 
 }
-    options { env.build() }
+#     options { env.build() }
 
     stages {
         stage('1-Find-a-Name') {
@@ -19,6 +19,7 @@ pipeline {
             steps {
                 echo "Start of Stage Deploy..."
                 echo "Deploying......."
+                echo "env.build"
                 sh "ls -la"
                 sh '''
                    echo "Line1"
