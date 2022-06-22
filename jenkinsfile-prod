@@ -5,7 +5,13 @@ pipeline {
       OWNER_NAME   = "Oleksii"
       JOB_NAME	   = "${JOB_NAME}"      
     }
-
+    option {
+	script {
+	    if (env.JOB_NAME.contains('PROD')) {
+	        disableConcurrentBuilds()
+		}
+	}
+    }
     stages {
         stage('1-Find-a-Name') {
 	    steps {
