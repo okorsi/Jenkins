@@ -20,6 +20,7 @@ pipeline {
                 echo "Project name is ${PROJECT_NAME}"
                 echo "Owner is ${OWNER_NAME}"
                 echo "End of Stage Build..."
+		echo "Job name is ${JOB_NAME}"
             }
         }
         stage('3-Deploy') {
