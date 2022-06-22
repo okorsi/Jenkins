@@ -17,7 +17,6 @@ pipeline {
     }
 }
         stage('2-Deploy') {
-        "$build"
             steps {
                 echo "Start of Stage Deploy..."
                 echo "Deploying......."
