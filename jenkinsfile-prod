@@ -5,7 +5,7 @@ pipeline {
       OWNER_NAME   = "Oleksii"
       JOB_NAME	   = "${JOB_NAME}"      
     }
-    option {
+    options {
 	script {
 	    if (env.JOB_NAME.contains('PROD')) {
 	        disableConcurrentBuilds()
