@@ -10,7 +10,7 @@ pipeline {
         stage('1-Find-a-Name') {
 	    steps {
                 script {
-		    if ($JOB_NAME.contains('PROD')) {
+		    if (env.JOB_NAME.contains('PROD')) {
 		        echo "Production"
 		    }
 		    }
