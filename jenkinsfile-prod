@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-      build = 'disableConcurrentBuilds' 
+      build = "disableConcurrentBuilds" 
 }
 
     stages {
@@ -18,7 +18,7 @@ pipeline {
             steps {
                 echo "Start of Stage Deploy..."
                 echo "Deploying......."
-                echo "env.build"
+                echo "$build"
                 sh "ls -la"
                 sh '''
                    echo "Line1"
