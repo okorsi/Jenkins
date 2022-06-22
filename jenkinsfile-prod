@@ -1,17 +1,17 @@
 pipeline {
     agent any
     environment {
-      build = "disableConcurrentBuilds" 
+      build = "options { disableConcurrentBuilds() }" 
 }
 
-     options { "$build"() }
+     
 
     stages {
         stage('1-Find-a-Name') {
           steps { 
             script {
             if (env.JOB_NAME.contains('PROD')) {
-                echo "NON_TESTING"
+                $build
                 }
     }
     }
