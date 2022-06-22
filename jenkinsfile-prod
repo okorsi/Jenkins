@@ -1,23 +1,19 @@
 pipeline {
     agent any
     environment {
-      PROJECT_NAME = "TESTING"
-      OWNER_NAME   = "Oleksii"
-      JOB_NAME     = "${JOB_NAME}"
+      Builds = disableConcurrentBuilds
     }
 
     stages {
         stage('1-Find-a-Name') {
-        
+        options { $Builds() }
             steps {
-                script {
-                    if (env.JOB_NAME.contains('PROD')) {
-                      options { disableConcurrentBuilds() }
-                    }
-                    }
-                 }
-                 }
-        
+                echo "Start of Stage Build..."
+                echo "Building......."
+                echo "End of Stage Build..."
+        }
+    }
+
         stage('2-Deploy') {
             steps {
                 echo "Start of Stage Deploy..."
