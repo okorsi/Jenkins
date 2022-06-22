@@ -8,11 +8,13 @@ pipeline {
 
     stages {
         stage('1-Find-a-Name') {
-            script {
-		if ($JOB_NAME.contains('PROD')) {
-		echo "Production"
-		}
-            }
+	    steps {
+                script {
+		    if ($JOB_NAME.contains('PROD')) {
+		        echo "Production"
+		    }
+		    }
+                 }
         }
         stage('2-Deploy') {
             steps {
