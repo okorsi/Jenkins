@@ -7,7 +7,7 @@ pipeline {
     }
 
     stages {
-        stage('1-Find-a-name') {
+        stage('1-Find-a-Name') {
             script {
 		if ($JOB_NAME.contains('PROD')) {
 		echo "Production"
