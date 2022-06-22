@@ -4,6 +4,8 @@ pipeline {
       build = "disableConcurrentBuilds" 
 }
 
+     options { "$build"() }
+
     stages {
         stage('1-Find-a-Name') {
           steps { 
@@ -18,7 +20,7 @@ pipeline {
             steps {
                 echo "Start of Stage Deploy..."
                 echo "Deploying......."
-                echo "$build"
+                echo "env.build"
                 sh "ls -la"
                 sh '''
                    echo "Line1"
