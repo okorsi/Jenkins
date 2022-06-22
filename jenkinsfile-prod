@@ -6,11 +6,9 @@ pipeline {
       JOB_NAME	   = "${JOB_NAME}"      
     }
     options {
-	script {
 	    if (env.JOB_NAME.contains('PROD')) {
 	        disableConcurrentBuilds()
 		}
-	}
     }
     stages {
         stage('1-Find-a-Name') {
