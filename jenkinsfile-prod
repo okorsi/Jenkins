@@ -3,7 +3,6 @@ pipeline {
     environment {
       build = 'disableConcurrentBuilds' 
 }
-#     options { env.build() }
 
     stages {
         stage('1-Find-a-Name') {
