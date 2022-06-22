@@ -9,7 +9,7 @@ pipeline {
     stages {
         stage('1-Check-job-name') {
             steps {
-                if [[ ${JOB_NAME} == *"TEST"* ]]; then
+                if (( ${JOB_NAME} == *"TEST"* )); then
 		echo  "It's TESTING ENV"
                 else
                 echo "It's noTESTING ENV"
