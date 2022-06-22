@@ -1,23 +1,15 @@
 pipeline {
     agent any
-    environment {
-      PROJECT_NAME = "TESTING"
-      OWNER_NAME   = "Oleksii"
-      JOB_NAME	   = "${JOB_NAME}"      
-    }
-    options {
-	    if (env.JOB_NAME.contains('PROD')) {
-	        disableConcurrentBuilds()
-		}
-    }
+
     stages {
         stage('1-Find-a-Name') {
-	    steps {
+
+            steps {
                 script {
-		    if (env.JOB_NAME.contains('PROD')) {
-		        echo "Production"
-		    }
-		    }
+                    if (env.JOB_NAME.contains('PROD')) {
+                        echo "Production"
+                    }
+                    }
                  }
         }
         stage('2-Deploy') {
@@ -36,6 +28,6 @@ pipeline {
             steps {
                 echo "Slava Ukraine!"
             }
-        }	
+        }       
     }
 }
