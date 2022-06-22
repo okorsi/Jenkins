@@ -11,7 +11,7 @@ pipeline {
           steps { 
             script {
             if (env.JOB_NAME.contains('PROD')) {
-                $build
+               "$build"
                 }
     }
     }
