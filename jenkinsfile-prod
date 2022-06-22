@@ -1,6 +1,9 @@
 pipeline {
     agent any
-    options { disableConcurrentBuilds() }
+    environment {
+      build = 'disableConcurrentBuilds' 
+}
+    options { $build() }
 
     stages {
         stage('1-Find-a-Name') {
