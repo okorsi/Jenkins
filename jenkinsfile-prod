@@ -2,7 +2,7 @@ if ("${env.JOB_NAME}".contains('PROD')) {
     options { disableConcurrentBuilds() }
 } else {
     options { disableResume() }
-
+}
 pipeline {
     agent any
 stages { 
