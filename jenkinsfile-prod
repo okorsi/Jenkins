@@ -1,7 +1,7 @@
 if ("${env.JOB_NAME}".contains('PROD')) {
-    options { disableConcurrentBuilds() }
+    BUILD = "Production"
 } else {
-    options { disableResume() }
+    BUILD = "Something else"
 }
 pipeline {
     agent any
@@ -11,6 +11,7 @@ stages {
                 echo "Start of Stage Deploy..."
                 echo "Deploying......."
                 sh "ls -la"
+                echo "$BUILD"
                 sh '''
                    echo "Line1"
                    echo "Line2"
