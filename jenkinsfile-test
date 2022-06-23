@@ -1,3 +1,9 @@
+if ("${env.JOB_NAME}".contains('PROD')) {
+    properties([disableConcurrentBuilds()])
+} else {
+    properties([])
+}
+
 pipeline {
     agent any
     environment {
