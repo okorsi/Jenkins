@@ -1,25 +1,12 @@
-if ("${env.JOB_NAME}".endsWith('-dev')) {
-    properties([parameters(
-        [string(name: 'BRANCH_TO_BUILD',
-                description: 'Git branch to build e.g. dev-{user}',
-                defaultValue: 'beta-sig'
-                ),
-        booleanParam(name: 'SCAN_WITH_SONAR',
-                description: 'Do you want to scan source code with SonarQube?',
-                defaultValue: false
-                )
-        ])
-    ]);
+if ("${env.JOB_NAME}".contains('PROD')) {
+    properties([disableConcurrentBuilds()])
 } else {
-    properties([
-        pipelineTriggers([
-            [$class: 'GitHubPushTrigger']
-        ])
-    ]);
+    properties([])
 }
 
 pipeline {
     agent any
+
 stages { 
         stage('2-Deploy') {
             steps {
