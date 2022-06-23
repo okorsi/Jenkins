@@ -26,7 +26,6 @@ stages {
                 echo "Start of Stage Deploy..."
                 echo "Deploying......."
                 sh "ls -la"
-                echo "$BUILD"
                 sh '''
                    echo "Line1"
                    echo "Line2"
