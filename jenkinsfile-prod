@@ -1,22 +1,13 @@
+if ("${env.JOB_NAME}".contains('PROD')) {
+    options { disableConcurrentBuilds() }
+} else {
+    options { disableResume() }
+
 pipeline {
     agent any
-    environment {
-      build = "options { disableConcurrentBuilds() }" 
-}
-
-     
-
-    stages {
-        stage('1-Find-a-Name') {
-          steps { 
-            script {
-            if (env.JOB_NAME.contains('PROD')) {
-                "$build"
-                }
-    }
-    }
-}
+stages { 
         stage('2-Deploy') {
+        "$build"
             steps {
                 echo "Start of Stage Deploy..."
                 echo "Deploying......."
@@ -33,6 +24,6 @@ pipeline {
             steps {
                 echo "Slava Ukraine!"
             }
-        }       
+        }
     }
   }
