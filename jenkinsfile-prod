@@ -7,11 +7,9 @@ pipeline {
     agent any
 stages { 
         stage('2-Deploy') {
-        "$build"
             steps {
                 echo "Start of Stage Deploy..."
                 echo "Deploying......."
-                echo "$build"
                 sh "ls -la"
                 sh '''
                    echo "Line1"
